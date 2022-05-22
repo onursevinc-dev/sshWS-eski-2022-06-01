@@ -15,8 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "users")//not user => because it is reserved.
-public class User
-{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +28,24 @@ public class User
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
+
+    @Column(name = "surname", nullable = false, length = 100)
+    private String surname;
+
+    @Column(name = "gender", nullable = false)
+    private int gender;
+
+    @Column(name = "email", nullable = false, length = 100)
+    private String email;
+
+    @Column(name = "phone_number", nullable = false, length = 100)
+    private String phoneNumber;
+
+    @Column(name = "address", nullable = false, length = 100)
+    private String address;
+
+    @Column(name = "country", nullable = false, length = 100)
+    private String country;
 
     @Column(name = "create_time", nullable = false)
     private LocalDateTime createTime;
