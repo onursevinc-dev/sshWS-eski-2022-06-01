@@ -22,6 +22,15 @@ public class Device {
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
+    @Column(name = "device_operation_time", nullable = false)
+    private int deviceOperationTime;
+
+    @Column(name = "device_views", nullable = false)
+    private int deviceViews;
+
+    @Column(name = "device_status", nullable = false)
+    private int deviceStatus;
+
     @Column(name = "description", nullable = false, length = 1000)
     private String description;
 
