@@ -1,6 +1,9 @@
 package com.onursevinc.dev.sshWS.device;
 
+import com.onursevinc.dev.sshWS.user.User;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +22,11 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User user;
+
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
@@ -28,8 +36,11 @@ public class Device {
     @Column(name = "device_views", nullable = false)
     private int deviceViews;
 
-    @Column(name = "device_status", nullable = false)
-    private int deviceStatus;
+    @Column(name = "device_digital_value", nullable = false)
+    private int deviceDigitalValue;
+
+    @Column(name = "device_analog_value", nullable = false)
+    private int deviceAnalogValue;
 
     @Column(name = "description", nullable = false, length = 1000)
     private String description;
